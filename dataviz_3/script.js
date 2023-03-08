@@ -12,7 +12,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         ),
       ],
       line: true,
-      
       x: {
         tickFormat: 'd',
         ticks: 11,
