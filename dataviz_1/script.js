@@ -2,6 +2,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     let chart = Plot.plot({
       color: {scheme: 'spectral'},
       marks: [
+        Plot.axisY({anchor: "Left", label: "Misión Horas"}),
         Plot.barY(data, {
           x: 'anio_mision',
           y: 'mision_hs',
@@ -17,6 +18,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       ],
       x: {
         tickFormat: 'd',
+        label: "Año de Misión",
       },
       marginLeft: 70,
       height: 700,

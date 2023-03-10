@@ -8,25 +8,30 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         fill: 'genero',
         fillOpacity: 1,
         //r: 'pop',
-        //title: 'country',
+        //title: cant_m,
       }),
     ],
     grid: true,
     nice: true,
     zero: true,
-    width: 1000,
+    width: 800,
     height: 1000,
     r: { range: [0, 18] },
     facet: {
       data: data,
       y: 'nacionalidad',
+      label: null,
     },
-    x: { ticks: 10,
+    x: { ticks: 4,
       tickFormat: 'd',
+      //transform: d => d/24,
+    },
+    y: {
+       label: null,
     },
     axisX: {
       valueFormatString: "#",
-      interval: 1
+      interval: 1,
     },
   })
   d3.select('#chart').append(() => chart)
