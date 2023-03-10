@@ -1,26 +1,25 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
-    let chart = Plot.plot({
-      marks: [
-        Plot.areaY(
-          data.filter(d => d.nacionalidad == 'EE.UU.'),
-          {
-            x: 'anio_mision',
-            y: 'mision_hs',
-            opacity: 0.3,
-            curve: 'natural',
-          },
-        ),
-      ],
-      line: true,
-      x: {
-        tickFormat: 'd',
-        ticks: 11,
-      },
-      y: {
-        ticks: 7,
-        grid: true,
-      },
-    })
-    d3.select('#chart').append(() => chart)
+  let dataABC = data.filter(
+    d => d.nombre== 'Anton Shkaplerov' || d.nombre == 'Oleg Skripochka'|| d.nombre == 'Fyodor Yurchikhin' || d.nombre == 'Aleksandr Jr. Skvortsov' || d.nombre == 'Aleksey Ovchinin'
+  ) 
+  let chart = Plot.plot({
+    marks: [
+      Plot.line(dataABC, {
+        x: 'anio_mision',
+        y: 'mision_hs',
+        z: 'nombre',
+        stroke: 'nombre',
+        title: (d) =>
+        `${d.nombre}
+        `,
+      }),
+    ],
+    x: {
+      // https://github.com/observablehq/plot#formats
+      tickFormat: 'd',
+    },
   })
+  d3.select('#chart').append(() => chart)
+})
+
   
