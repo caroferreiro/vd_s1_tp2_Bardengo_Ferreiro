@@ -12,7 +12,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           sort: 'nacionalidad',
           title: (d) =>
           `${d.nacionalidad}
-          Horas de misión: ${(d.mision_hs/24).toFixed(2)} días`,
+          Días de misión: ${(d.mision_hs/24).toFixed(2)} días`,
         //  Horas de misión: ${Math.round(d.mision_hs/24)} días`,
         }),
       ],
