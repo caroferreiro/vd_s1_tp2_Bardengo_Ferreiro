@@ -3,7 +3,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     //d => d.nacionalidad == 'Canada' || d.nacionalidad == 'Alemania' 
   //)
   let chart = Plot.plot({
-<<<<<<< HEAD
     color: {scheme: 'set2'},
       marks: [
       Plot.barX(data, {
@@ -15,15 +14,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         title: (d) => `Género: ${d.genero}
         Horas totales de misión: ${(d.mision_hs)} horas
         Duración de actividades extravehiculares: ${(d.eva_mision_hs).toFixed(2)} horas`,
-=======
-    marks: [
-      Plot.areaY(dataABC, {
-        x: 'anio_mision',
-        y: 'mision_hs',
-        // https://observablehq.com/@ee2dev/sorting-with-plot-a-collection-of-plot-examples
-        //sort: d => -d.pop, // orden descendente
-        fill: 'ocupacion',
->>>>>>> c582eddda4c05626a4588812a9ff532bb098d68f
       }),
     ],
     grid: true,
