@@ -1,11 +1,13 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
     let chart = Plot.plot({
-      color: {scheme: 'accent'},
+      color: {scheme: 'tableau10', type: 'categorical'},
         marks: [
         Plot.barX(data, {
           x: 'mision_hs',
           y: 'ocupacion',
-          fill: 'ocupacion',
+          fill: 'status',
+          sort: 'status',
+          title: (d) => `Status: ${d.status}`,
         }),
       ],
       y: {
