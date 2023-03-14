@@ -1,6 +1,6 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
   let dataABC = data.filter(
-    d => d.nombre== 'Anton Shkaplerov' || d.nombre == 'Oleg Skripochka'|| d.nombre == 'Fyodor Yurchikhin' || d.nombre == 'Aleksandr Jr. Skvortsov' || d.nombre == 'Aleksey Ovchinin'
+    d => d.nombre== 'Anton Shkaplerov' || d.nombre == 'Oleg Skripochka'|| d.nombre == 'Fyodor Yurchikhin' || d.nombre == 'Aleksandr Jr. Skvortsov'
   ) 
   let chart = Plot.plot({
     marks: [
