@@ -12,6 +12,10 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         Horas totales de misión: ${(d.mision_hs)} horas
         Duración de actividades extravehiculares: ${(d.eva_mision_hs).toFixed(2)} horas`,
       }),
+      Plot.axisY(data, {
+        label: 'Genero',
+        labelOffset: 40,
+      }),
     ],
     grid: true,
     nice: true,
@@ -26,7 +30,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     facet: {
       data: data,
       y: 'nacionalidad',
-      label: null,
+      
     },
     x: { ticks: 7,
       tickFormat: 'd',
@@ -35,7 +39,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       labelOffset: 40,
     },
     y: {
-      label: null,
       domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.genero),
     },
     axisX: {
