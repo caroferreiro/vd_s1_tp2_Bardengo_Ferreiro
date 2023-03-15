@@ -18,8 +18,10 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     zero: true,
     width: 1200,
     height: 800,
-    marginLeft: 70,
+    marginLeft: 60,
     marginRight: 80,
+    marginTop: 10,
+    marginBottom: 40,
     r: { range: [0, 18] },
     facet: {
       data: data,
@@ -29,7 +31,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     x: { ticks: 7,
       tickFormat: 'd',
       //transform: d => d/24,
-      label: 'Horas de misión'
+      label: 'Horas de misión',
+      labelOffset: 40,
     },
     y: {
       label: null,
