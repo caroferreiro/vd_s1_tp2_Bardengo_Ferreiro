@@ -13,8 +13,8 @@ selectElement.on('input', event => {
 d3.csv('astronautas.csv', d3.autoType).then(dataChart => {
   data = dataChart
   let initYear = selectElement.attr('value')
-  valuesDomainX = [d3.min(data, d => d.mision_hs), d3.max(data, d => d.mision_hs)]
-  valuesDomainY = [d3.min(data, d => d.eva_mision_hs), d3.max(data, d => d.eva_mision_hs)]
+  //valuesDomainX = [d3.min(data, d => d.nacionalidad), d3.max(data, d => d.nacionalidad)]
+  valuesDomainY = [d3.min(data, d => d.mision_hs), d3.max(data, d => d.mision_hs)]
   changeValueInput(initYear)
   createChart(initYear)
 })
@@ -31,13 +31,15 @@ function createChart(yearSelected) {
     line: true,
     nice: true,
     zero: true,
+    width: 500,
+    height: 500,
     marks: [
-      Plot.dot(dataFilter, {
-        x: 'mision_hs',
-        y: 'eva_mision_hs',
+      Plot.barY(dataFilter, {
+        x: 'nacionalidad',
+        y: 'mision_hs',
         fill: 'nacionalidad',
         fillOpacity: 0.6,
-        r: 'edad_mision',
+        //r: 'edad_mision',
         title: 'nombre',
       }),
     ],
@@ -45,12 +47,13 @@ function createChart(yearSelected) {
       legend: true,
       className: 'legend-clusters',
     },
-    r: {range:[0,5]},
+    //r: {range:[0,5]},
     x: {
       domain: valuesDomainX,
+      label: null,
     },
     y: {
-      domain: valuesDomainY,
+      label: valuesDomainY,
     },
   })
 
