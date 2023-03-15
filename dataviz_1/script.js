@@ -7,16 +7,15 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         Plot.barY(data, Plot.groupX({y: 'sum'}, {
           x: 'anio_mision', 
           y: 'mision_hs', 
-          fill: 'nacionalidad'})),
-
-        //   color: {scheme: 'BuRd'},
-        //   opacity: 0.7,
-        //   sort: 'nacionalidad',
-        //   title: (d) =>
-        //   `${d.nacionalidad}
-        //   Días de misión: ${(d.mision_hs/24).toFixed(2)} días`,
-        // //  Horas de misión: ${Math.round(d.mision_hs/24)} días`,
-        // }
+          fill: 'nacionalidad',
+          color: {scheme: 'BuRd'},
+          opacity: 0.7,
+          sort: 'nacionalidad',
+          title: (d) =>
+          `${d.nacionalidad}
+          Días de misión: ${(d.mision_hs/24).toFixed(2)} días`,
+       // //  Horas de misión: ${Math.round(d.mision_hs/24)} días`,
+       })),
       ],
       x: {
         tickFormat: 'd',
