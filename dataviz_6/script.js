@@ -32,9 +32,11 @@ function createChart(yearSelected) {
     nice: true,
     zero: true,
     width: 500,
-    height: 500,
+    height: 800,
+    marginLeft: 50,
+    marginTop: 30,
     marks: [
-      Plot.barY(dataFilter, {
+      Plot.barY(dataFilter, Plot.groupX({y: 'sum'}, {
         x: 'nacionalidad',
         y: 'mision_hs',
         fill: 'nacionalidad',
@@ -42,6 +44,10 @@ function createChart(yearSelected) {
         //r: 'edad_mision',
         title: 'nombre',
       }),
+      Plot.axisX(valuesDomainX, {
+        fontWeight: 'bold',
+        fontSize: 11,
+      })),
     ],
     color: {
       legend: true,
@@ -53,8 +59,13 @@ function createChart(yearSelected) {
       label: null,
     },
     y: {
-      label: valuesDomainY,
+      label: 'Horas de misión',
+      ticks: 10,
+      //domain: valuesDomainY,
     },
+    style: {
+      fontSize: 12,
+    }
   })
 
   /* Agrega un título a la leyenda x d3 */
