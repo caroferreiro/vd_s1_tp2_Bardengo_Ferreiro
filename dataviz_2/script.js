@@ -1,22 +1,47 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
   let chart = Plot.plot({
-    color: {scheme: 'set2'},
+    color: {
+      scheme: 'accent',
+      legend: true,
+    },
       marks: [
-      Plot.barX(data, {
+      Plot.barX(data,  Plot.groupY({x: 'sum'}, {
         x: 'mision_hs',
         y: 'genero',
         fill: 'genero',
         fillOpacity: 1,
-        //r: 'pop',
-        title: (d) => `Género: ${d.genero}
-        Horas totales de misión: ${(d.mision_hs)} horas
-        Duración de actividades extravehiculares: ${(d.eva_mision_hs).toFixed(2)} horas`,
-      }),
+        title: (d) => `Género: ${d.genero}`,
+      })),
       Plot.axisY(data, {
         label: 'Genero',
         labelOffset: 40,
+        fontSize: 14,
+        fontWeight: 'bold',
       }),
+      Plot.axisX({
+        ticks: 5,
+        label: 'Horas de misión',
+        labelOffset: 40,
+        labelSize: 14,
+        labelWeight: 'bold',
+    }),
     ],
+    facet: {
+      data: data,
+      y: 'nacionalidad',
+      label: null
+    },
+    y: {
+      domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.genero),
+    },
+    style: {
+      //fontWeight: 'bold',
+      //fontSize: 12,
+    },
+    axisX: {
+      valueFormatString: "#",
+      interval: 1,
+    },
     grid: true,
     nice: true,
     zero: true,
@@ -27,24 +52,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     marginTop: 10,
     marginBottom: 40,
     r: { range: [0, 18] },
-    facet: {
-      data: data,
-      y: 'nacionalidad',
-      
-    },
-    x: { ticks: 7,
-      tickFormat: 'd',
-      //transform: d => d/24,
-      label: 'Horas de misión',
-      labelOffset: 40,
-    },
-    y: {
-      domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.genero),
-    },
-    axisX: {
-      valueFormatString: "#",
-      interval: 1,
-    },
   })
   d3.select('#chart').append(() => chart)
 })

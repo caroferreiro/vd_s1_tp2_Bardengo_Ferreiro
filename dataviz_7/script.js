@@ -4,18 +4,25 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         marks: [
         Plot.barX(data2016_2019, {
           x: 'mision_hs',
-          y: 'genero',
+          y: 'anio_mision',
           fill: 'genero',
           sort: 'genero',
         }),
         Plot.frame(),
+        Plot.axisY(data2016_2019, {
+          tickFormat: 'd',
+          //label: '',
+          labelOffset: 40,
+          fontSize: 13,
+          fontWeight: 'bold',
+      }),
       ],
-      facet: {
-        data: data2016_2019,
-        y: 'anio_mision',
-        label: null,
-        format: 'years',
-      },
+      // facet: {
+      //   data: data2016_2019,
+      //   y: 'anio_mision',
+      //   label: null,
+      //   format: 'years',
+      // },
       x: {
         ticks: 10,
         domain: [0, 80000],
@@ -23,8 +30,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         labelOffset: 40,
       },
       y: {
-        label: null,
-        domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.emision_hs)).map(d => d.genero),
+        //label: null,
+        domain: d3.sort(data2016_2019, (a, b) => d3.descending(a.mision_hs, b.emision_hs)).map(d => d.anio_mision),
       },
       style: {
         //fontFamily: 'sans-serif',
@@ -32,11 +39,12 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         //fontWeight: 'bold',
       },
       height: 200,
-      width: 1900,
+      width: 1500,
       marginLeft: 100,
       marginBottom: 50,
     })
     d3.select('#chart').append(() => chart)
+
 
     let chart2 = Plot.plot({
       marks: [
@@ -47,6 +55,13 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         sort: 'genero',
       }),
       Plot.frame(),
+      Plot.axisY(data2016_2019, {
+        tickFormat: 'd',
+        label: 'Género',
+        labelOffset: 40,
+        fontSize: 13,
+        fontWeight: 'bold',
+    }),
     ],
     facet: {
       data: data2016_2019,
@@ -71,7 +86,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       valueFormatString: 'YYYY',
     },
     height: 200,
-    width: 1900,
+    width: 1500,
     marginLeft: 100,
     marginBottom: 50,
   })

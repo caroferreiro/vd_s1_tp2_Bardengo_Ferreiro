@@ -1,5 +1,4 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
-    //let max = data.max(d => d.anio_mision)
     let chart = Plot.plot({
       color: {scheme: 'spectral'},
       marks: [
