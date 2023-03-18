@@ -2,18 +2,19 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     let chart = Plot.plot({
       color: {
         scheme: 'spectral',
-        //range: ['#9e0142', '#d53e4f', '#f46d43', '#fdae61', '#fee08b', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'],
-        //range: ['#FF69B4', '#87cefa', '#7b68ee', '#98fb98', '#f08080', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'],
+        //range: ['#9e0142', '#d53e4f', '#a454b0', '#4daf4a', '#fee08b', '#e6f598', '#abdda4', 'lemonchiffon', 'yellowgreen', '#4daf4a', '#71d1b3'],
+        //       Alemania    Canada     Rusia    Dinamarca    EE.UU.               Francia        Italia          Japon     Kazajistan
+        //range: ['#FF69B4', '#87cefa', '#7b68ee', '#98fb98', '#f08080', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'], '#bc80bd','#ffed6f'
       },
       marks: [
         Plot.axisY({ anchor: "Left", label: "Horas de misión", labelOffset: 70}),
         Plot.barY(data, 
-          //Plot.groupX({y: 'sum'}),
+          //Plot.groupX({y: 'sum'},
           {
           x: 'anio_mision', 
           y: 'mision_hs', 
           fill: 'nacionalidad',
-          opacity: 0.6,
+          opacity: 0.5,
           //stroke: 'nacionalidad',
           //strokeOpacity: 1,
           sort: 'nacionalidad',
@@ -21,7 +22,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           `${d.nacionalidad}
           Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
        // Horas de misión: ${Math.round(d.mision_hs/24)} días`,
-       },),
+       }),
        //),
       //  Plot.text(data,{
       //   x: 'anio_mision',

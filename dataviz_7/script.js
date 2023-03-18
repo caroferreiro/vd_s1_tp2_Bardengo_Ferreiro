@@ -32,7 +32,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         label: null,
       },
       color: { 
-        //range: ['#bc80bd','#ffed6f']
+        //range: ['#5e4fa2','#66c2a5']
         range: ['#4daf4a','#984ea3'],
       },
       height: 180,
