@@ -3,7 +3,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
   let data_fem = data.filter(d => d.genero == 'femenino')
   let chart = Plot.plot({
     color: {
-      range: ['hotpink', '#386cb0'],
+      range: ['hotpink', '#48a0d6'],
+      //range: ['#8c7bd6', '#ffa247' ]
       //legend: true, ["#7fc97f","#beaed4","#fdc086","#ffff99","#386cb0","#f0027f","#bf5b17","#666666"]
     },
       marks: [
@@ -68,7 +69,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     grid: true,
     nice: true,
     zero: true,
-    width: 1000,
+    width: 900,
     height: 800,
     marginLeft: 60,
     marginRight: 120,

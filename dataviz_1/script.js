@@ -1,15 +1,20 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
     let chart = Plot.plot({
-      color: {scheme: 'spectral'},
+      color: {
+        scheme: 'spectral',
+        //range: ['##9e0142', '#d53e4f', '#f46d43', '#fdae61', '#fee08b', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'],
+      },
       marks: [
-        Plot.axisY({ anchor: "Left", label: "Horas de misión" }),
+        Plot.axisY({ anchor: "Left", label: "Horas de misión", labelOffset: 70}),
         Plot.barY(data, 
           //Plot.groupX({y: 'sum'}),
           {
           x: 'anio_mision', 
           y: 'mision_hs', 
           fill: 'nacionalidad',
-          opacity: 0.7,
+          opacity: 0.6,
+          //stroke: 'nacionalidad',
+          //strokeOpacity: 1,
           sort: 'nacionalidad',
           title: (d) =>
           `${d.nacionalidad}
@@ -30,15 +35,14 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       x: {
         tickFormat: 'd',
         label: "Año de Misión",
-        labelOffset: 35,
       },
       style: {
         fontSize: 12,
       },
-      marginLeft: 70,
+      marginLeft: 210,
       marginBottom: 50,
       height: 700,
-      width: 500,
+      width: 700,
     })
     d3.select('#chart').append(() => chart)
   })
