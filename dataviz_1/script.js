@@ -4,7 +4,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       marks: [
         Plot.axisY({ anchor: "Left", label: "Horas de misión" }),
         Plot.barY(data, 
-          //Plot.groupX({y: 'sum'},
+          //Plot.groupX({y: 'sum'}),
           {
           x: 'anio_mision', 
           y: 'mision_hs', 
@@ -15,9 +15,17 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           `${d.nacionalidad}
           Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
        // Horas de misión: ${Math.round(d.mision_hs/24)} días`,
-       },
-       ),
+       },),
        //),
+      //  Plot.text(data,{
+      //   x: 'anio_mision',
+      //   y: 'mision_hs',
+      //   text: 'mision_hs',
+      //   fill: d => (d.anio_mision == '2016' ? '#000000' : 'transparent'),
+      //   fontWeight: 'light',
+      //   fontSize: 12,
+      //   dy: -20,
+      // }),
       ],
       x: {
         tickFormat: 'd',
