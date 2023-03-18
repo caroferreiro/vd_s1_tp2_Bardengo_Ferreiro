@@ -2,7 +2,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     let chart = Plot.plot({
       color: {
         scheme: 'spectral',
-        //range: ['##9e0142', '#d53e4f', '#f46d43', '#fdae61', '#fee08b', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'],
+        //range: ['#9e0142', '#d53e4f', '#f46d43', '#fdae61', '#fee08b', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'],
+        //range: ['#FF69B4', '#87cefa', '#7b68ee', '#98fb98', '#f08080', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'],
       },
       marks: [
         Plot.axisY({ anchor: "Left", label: "Horas de misión", labelOffset: 70}),
