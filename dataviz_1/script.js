@@ -1,4 +1,5 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
+    let datos_2016 = data.filter(d => d.anio_mision == '2016')
     let chart = Plot.plot({
       color: {
         scheme: 'spectral',
@@ -9,30 +10,30 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       marks: [
         Plot.axisY({ anchor: "Left", label: "Horas de misión", labelOffset: 70}),
         Plot.barY(data, 
-          //Plot.groupX({y: 'sum'},
+          //Plot.groupX({y: 'sum'}, 
           {
-          x: 'anio_mision', 
-          y: 'mision_hs', 
-          fill: 'nacionalidad',
-          opacity: 0.5,
-          //stroke: 'nacionalidad',
-          //strokeOpacity: 1,
-          sort: 'nacionalidad',
-          title: (d) =>
+            x: 'anio_mision', 
+            y: 'mision_hs', 
+            fill: 'nacionalidad',
+            opacity: 0.5,
+            //stroke: 'nacionalidad',
+            //strokeOpacity: 1,
+            sort: 'nacionalidad',
+            title: (d) =>
           `${d.nacionalidad}
           Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
        // Horas de misión: ${Math.round(d.mision_hs/24)} días`,
-       }),
-       //),
-      //  Plot.text(data,{
-      //   x: 'anio_mision',
-      //   y: 'mision_hs',
-      //   text: 'mision_hs',
-      //   fill: d => (d.anio_mision == '2016' ? '#000000' : 'transparent'),
-      //   fontWeight: 'light',
-      //   fontSize: 12,
-      //   dy: -20,
-      // }),
+          }),
+          //),
+        Plot.text(data, Plot.binX({y:'sum'}, {
+          x: 'anio_mision',
+          //y: 'mision_hs',
+          text: 'mision_hs',
+          fill: '#000000',
+          fontWeight: 'light',
+          fontSize: 12,
+          //dy: -20,
+        })),
       ],
       x: {
         tickFormat: 'd',
@@ -43,7 +44,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       },
       marginLeft: 210,
       marginBottom: 50,
-      height: 700,
+      height: 600,
       width: 700,
     })
     d3.select('#chart').append(() => chart)
