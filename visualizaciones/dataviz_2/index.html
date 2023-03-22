@@ -1,14 +1,13 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chart 01 - X</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Chart 02 - Bar Mark </title>
     <style>
       #chart{
-        overflow-y:auto;
+        overflow-y:hidden;
       }
       #chart svg{
         max-width: initial;
@@ -41,16 +40,14 @@
     <div class="container">
       <div class="columns">
         <div class="column col-12">
-        <h2>La carrera espacial en la década del 2010</h2>
-          <p>En la siguiente visualización podemos observar la variación de las horas de misión espacial a través de los años, donde cada color representa, a su vez, cada país.</p>
+        <h2>¿Mujeres excluídas de la actividad espacial?</h2>
+          <p>La siguiente visualización muestra el sesgo machista dentro de la industria espacial, donde las barras diferencian el género de quienes participaron en misiones espaciales. También se encuentra separado por nacionalidad, tomando en cuenta únicamente aquellos países en donde al menos una mujer participó en alguna misión.</p>
           
     <div id="chart"></div>
-        </div>
-      </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
