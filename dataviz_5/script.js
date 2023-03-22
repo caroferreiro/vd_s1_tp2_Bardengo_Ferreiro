@@ -23,9 +23,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         }),
         Plot.axisX({
           ticks: 10,
-          label: 'Ocupación',
           labelOffset: 80,
-          fontSize: 0,
+          fontSize: 10,
         }),
       ],
       facet: {
