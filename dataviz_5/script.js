@@ -1,6 +1,8 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
     let datos_US_USSR = data.filter(d => d.nacionalidad == 'U.S.S.R/Rusia' || d.nacionalidad == 'EE.UU.')
     let datos_filtrados = datos_US_USSR.filter(d => d.anio_mision == '2016' || d.anio_mision == '2019')
+    let datos_comandante = datos_US_USSR.filter(d => d.ocupacion == 'comandante')
+    let datos_ing = datos_US_USSR.filter(d => d.ocupacion == 'ingeniero aeroespacial')
     let chart = Plot.plot({
       color: {
         range: ['#f2ae72', '#80ced6']
@@ -22,9 +24,17 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           fontSize: 12,
         }),
         Plot.axisX({
-          ticks: 10,
-          labelOffset: 80,
-          fontSize: 10,
+          label: "Ocupación",
+          fontSize: 0,
+        }),
+        Plot.text(datos_filtrados, {
+          x: 'ocupacion',
+          y: 'mision_hs',
+          text: ['Ocupación'],
+          fill: '#111111', 
+          fontSize: 13,
+          dx: 60,
+          dy: 70,
         }),
       ],
       facet: {
@@ -37,11 +47,12 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         label: 'Horas de misión',
         labelOffset: 70,
         ticks: 8,
-        fontSize: 12,
+        labelSize: 12,
         //domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.ocupacion),
       },
       x: {
         label: 'Ocupación',
+        fontSize: 10
       },
       style: {
         fontSize: 12,
