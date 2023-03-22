@@ -1,6 +1,7 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
-  let data_masc = data.filter(d => d.genero == 'masculino')
-  let data_fem = data.filter(d => d.genero == 'femenino')
+  let data_mascYfem = data.filter(d => d.nacionalidad == 'China' || d.nacionalidad == 'EE.UU.' || d.nacionalidad == 'Italia' || d.nacionalidad == 'Japon' || d.nacionalidad == 'U.S.S.R/Rusia' )
+  let data_masc = data_mascYfem.filter(d => d.genero == 'masculino')
+  let data_fem = data_mascYfem.filter(d => d.genero == 'femenino')
   let chart = Plot.plot({
     color: {
       //range: ['hotpink', '#48a0d6'],
@@ -9,7 +10,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       //legend: true, ["#7fc97f","#beaed4","#fdc086","#ffff99","#386cb0","#f0027f","#bf5b17","#666666"]
     },
       marks: [
-      Plot.barX(data,  Plot.groupY({x: 'sum'}, {
+      Plot.barX(data_mascYfem,  Plot.groupY({x: 'sum'}, {
         x: 'mision_hs',
         y: 'genero',
         fill: 'genero',
@@ -18,7 +19,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         strokeWidth: 1.2,
         title: (d) => `Género: ${d.genero}`,
       })),
-      Plot.axisY(data, {
+      Plot.axisY(data_mascYfem, {
         label: 'Género',
         labelOffset: 50,
         fontSize: 15,
@@ -52,12 +53,12 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       }),
     ],
     facet: {
-      data: data,
+      data: data_mascYfem,
       y: 'nacionalidad',
       label: null,
     },
     y: {
-      domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.genero),
+      domain: d3.sort(data_mascYfem, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.genero),
     },
     style: {
       //fontWeight: 'bold',
@@ -70,8 +71,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     grid: true,
     nice: true,
     zero: true,
-    width: 900,
-    height: 800,
+    width: 600,
+    height: 400,
     marginLeft: 60,
     marginRight: 135,
     marginTop: 10,
