@@ -8,32 +8,39 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         //range: ['#FF69B4', '#87cefa', '#7b68ee', '#98fb98', '#f08080', '#e6f598', '#abdda4', '#66c2a5', '#3288bd', '#5e4fa2'], '#bc80bd','#ffed6f'
       },
       marks: [
-        Plot.axisY({ anchor: "Left", label: "Horas de misión", labelOffset: 70}),
+        Plot.axisY({ 
+          anchor: "Left",
+          ticks: 10,
+          grid: true, 
+          label: "Horas de misión", 
+          labelOffset: 70,
+          fontSize: 12,
+        }),
         Plot.barY(data, 
-          //Plot.groupX({y: 'sum'}, 
-          {
+          Plot.groupX({y: 'sum'}, {
             x: 'anio_mision', 
             y: 'mision_hs', 
             fill: 'nacionalidad',
-            opacity: 0.5,
-            //stroke: 'nacionalidad',
-            //strokeOpacity: 1,
+            fillOpacity: 0.5,
+            stroke: 'nacionalidad',
+            strokeOpacity: 0.1,
+            strokeWeight: 0.1,
             sort: 'nacionalidad',
             title: (d) =>
-          `${d.nacionalidad}
-          Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
+          `${d.nacionalidad}`
+          //Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
        // Horas de misión: ${Math.round(d.mision_hs/24)} días`,
           }),
-          //),
-        Plot.text(data, Plot.binX({y:'sum'}, {
-          x: 'anio_mision',
-          //y: 'mision_hs',
-          text: 'mision_hs',
-          fill: '#000000',
-          fontWeight: 'light',
-          fontSize: 12,
-          //dy: -20,
-        })),
+          ),
+        // Plot.text(data, Plot.binX({y:'sum'}, {
+        //   x: 'anio_mision',
+        //   //y: 'mision_hs',
+        //   text: 'mision_hs',
+        //   fill: '#000000',
+        //   fontWeight: 'light',
+        //   fontSize: 12,
+        //   //dy: -20,
+        // })),
       ],
       x: {
         tickFormat: 'd',
@@ -44,7 +51,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       },
       marginLeft: 210,
       marginBottom: 50,
-      height: 600,
+      height: 550,
       width: 700,
     })
     d3.select('#chart').append(() => chart)

@@ -20,14 +20,19 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           ticks: 10,
           labelOffset: 80,
           fontSize: 12,
-        })
+        }),
+        Plot.axisX({
+          ticks: 10,
+          label: 'Ocupación',
+          labelOffset: 80,
+          fontSize: 0,
+        }),
       ],
       facet: {
         data: datos_filtrados,
         x: d => d.anio_mision + "",
         label: null,
         labelSize: 12,
-        
       },
       y: {
         label: 'Horas de misión',
@@ -37,13 +42,12 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         //domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.ocupacion),
       },
       x: {
-        label: null,
-        //domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.ocupacion),
+        label: 'Ocupación',
       },
       style: {
         fontSize: 12,
       },
-      height: 600,
+      height: 550,
       width: 600,
       marginLeft: 210,
       marginBottom: 40,
