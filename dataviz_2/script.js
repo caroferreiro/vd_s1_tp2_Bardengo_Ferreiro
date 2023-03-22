@@ -22,7 +22,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       Plot.axisY(data_mascYfem, {
         label: 'Género',
         labelOffset: 50,
-        fontSize: 15,
+        fontSize: 13,
         //fontWeight: 'bold',
       }),
       Plot.axisX({

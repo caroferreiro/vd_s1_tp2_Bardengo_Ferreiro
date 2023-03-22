@@ -34,7 +34,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           fill: '#111111', 
           fontSize: 13,
           dx: 60,
-          dy: 70,
+          dy: 62,
         }),
       ],
       facet: {
@@ -57,8 +57,10 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       style: {
         fontSize: 12,
       },
-      height: 550,
+      height: 500,
       width: 600,
+      insetTop: 15,
+      marginTop: 50,
       marginLeft: 210,
       marginBottom: 40,
     })
