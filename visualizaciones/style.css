@@ -1,3 +1,11 @@
+h1#title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 37px;
+  margin: 22px;
+}
+.lab {
+  font-family: 'DM Serif Text', serif;
+}
 iframe {
   display: block;
   min-width: 100%; 
