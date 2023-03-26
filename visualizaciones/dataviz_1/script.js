@@ -49,10 +49,10 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       style: {
         fontSize: 12,
       },
-      marginLeft: 100,
+      marginLeft: 70,
       marginBottom: 50,
-      height: 450,
-      width: 500,
+      height: 420,
+      width: 520,
     })
     d3.select('#chart').append(() => chart)
   })

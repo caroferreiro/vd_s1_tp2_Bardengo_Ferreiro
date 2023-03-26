@@ -17,7 +17,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           fillOpacity: 0.6,
           stroke: 'nacionalidad',
           strokeWidth: 1.2,
-          title: (d) => `Ocupación: ${d.ocupacion}`,
+          title: (d) => `${d.ocupacion}`,
         })),
         Plot.axisY({
           ticks: 10,
@@ -62,7 +62,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       width: 400,
       insetTop: 15,
       marginTop: 50,
-      marginLeft: 100,
+      marginLeft: 83,
       marginBottom: 50,
     })
     d3.select('#chart').append(() => chart)

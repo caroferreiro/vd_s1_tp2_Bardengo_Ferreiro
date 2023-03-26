@@ -22,14 +22,14 @@ iframe {
   border: 4px solid #3EAFDC; */
 }
 .container {
-  max-width: 860px;
+  max-width: 720px;
   margin: auto;
 }
 .table td, .table th {
   padding: .06rem .04rem;
 }
 .col-12 {
-  max-width: 960px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 }

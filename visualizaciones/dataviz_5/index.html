@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chart 05 - Bar Mark</title>
-    <style>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <style>
       #chart{
         overflow-y:auto;
       }
@@ -23,29 +24,32 @@
         font-family: 'Times New Roman', Times, serif;
         font-size: 15px;
         color: black;
-        margin-left: 20px;
-        margin-right: 642px;
+        /* margin-left: 20px;
+        margin-right: 642px; */
       }
+
       h1,
       h2,
       h3 {
         padding: 2px;
         font-family: 'Times New Roman', Times, serif;
         font-size: 26px;
-        margin-top: 0px;
+        /* margin-top: 0px; */
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <div class="container">
-      <div class="columns">
-        <div class="column col-12">
         <h2>Las carreras espaciales</h2>
-          <p>El siguiente gráfico de barras muestra las ocupaciones de las personas provenientes de los países dominantes en la industria espacial realizaron viajes en 2016 y 2019.</p>
-          
-    
-    <div id="chart"></div>
-
+        <p>El siguiente gráfico de barras muestra las ocupaciones de las personas provenientes de los países dominantes en la industria espacial realizaron viajes en 2016 y 2019.</p>
+        <div id="chart"></div>
+        <div class="fuente">
+          <p id="font">Fuente: Datos extraidos de la Nasa.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bardengo & Ferreiro</p>
+        </div>
+      </div>
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.js"></script>
