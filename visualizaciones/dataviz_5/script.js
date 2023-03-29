@@ -1,21 +1,19 @@
 d3.csv('astronautas.csv', d3.autoType).then(data => {
     let datos_US_USSR = data.filter(d => d.nacionalidad == 'U.S.S.R/Rusia' || d.nacionalidad == 'EE.UU.')
     let datos_filtrados = datos_US_USSR.filter(d => d.anio_mision == '2016' || d.anio_mision == '2019')
-    let datos_comandante = datos_US_USSR.filter(d => d.ocupacion == 'comandante')
-    let datos_ing = datos_US_USSR.filter(d => d.ocupacion == 'ingeniero aeroespacial')
     let chart = Plot.plot({
       color: {
-        range: ['#f2ae72', '#80ced6'],
+        range: ['#f2ae72', '#b2014b', '#abdda4', '#a454b0'],
         legend: true,
       },
         marks: [
-        Plot.barY(datos_filtrados, Plot.groupX({y: 'sum'}, {
+        Plot.barY(datos_US_USSR, Plot.groupX({y: 'sum'}, {
           x: 'ocupacion',
           y: 'mision_hs',
-          fill: 'nacionalidad',
-          sort: 'nacionalidad',
+          fill: 'ocupacion',
+          sort: 'ocupacion',
           fillOpacity: 0.6,
-          stroke: 'nacionalidad',
+          stroke: 'ocupacion',
           strokeWidth: 1.2,
           title: (d) => `${d.ocupacion}`,
         })),
@@ -28,27 +26,37 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           label: "Ocupación",
           fontSize: 0,
         }),
-        Plot.text(datos_filtrados, {
+        Plot.text(datos_US_USSR, {
           x: 'ocupacion',
           y: 'mision_hs',
           text: ['Ocupación'],
           fill: '#111111', 
           fontSize: 13,
-          dx: 60,
-          dy: 52,
+          dx: -100,
+          dy: 30,
+        }),
+        Plot.frame({
+          strokeWidth: 0.5,
         }),
       ],
       facet: {
-        data: datos_filtrados,
-        x: d => d.anio_mision + "",
+        data: datos_US_USSR,
+        x: 'nacionalidad',
         label: null,
         labelSize: 12,
       },
+      // facet: {
+      //   data: datos_filtrados,
+      //   x: d => d.anio_mision + "",
+      //   label: null,
+      //   labelSize: 12,
+      // },
       y: {
         label: 'Horas de misión',
         labelOffset: 70,
         ticks: 8,
         labelSize: 12,
+        grid: true,
         //domain: d3.sort(data, (a, b) => d3.descending(a.mision_hs, b.mision_hs)).map(d => d.ocupacion),
       },
       x: {
