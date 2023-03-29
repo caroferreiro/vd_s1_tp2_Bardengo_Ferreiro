@@ -72,13 +72,13 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       ],
       x: {
         tickFormat: 'd',
-        label: "Año de Misión",
+        label: null,
       },
       style: {
         fontSize: 12,
       },
       marginLeft: 70,
-      marginBottom: 50,
+      marginBottom: 25,
       height: 420,
       width: 520,
     })
