@@ -14,7 +14,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           ticks: 10,
           grid: true, 
           label: "Horas de misión", 
-          labelOffset: 70,
+          labelOffset: 45,
           fontSize: 12,
         }),
         Plot.barY(data, 
