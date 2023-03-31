@@ -5,7 +5,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
   let chart = Plot.plot({
     color: {
       //range: ['hotpink', '#48a0d6'],
-      range:  ['#e38ac2','#f7ce55'],
+      range:  ['#C32362','#AAABBC'],
       //range: ['#8c7bd6', '#ffa247' ]
       //legend: true, ["#7fc97f","#beaed4","#fdc086","#ffff99","#386cb0","#f0027f","#bf5b17","#666666"]
     },
