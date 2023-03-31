@@ -1,9 +1,9 @@
 #chart{
     overflow-y:auto;
-    max-width: 70%;
+    max-width: 75%;
     margin: auto;
     margin-left: 12px;
-    margin-top: 32px;
+    margin-top: -10px;
 }
 
 body {
