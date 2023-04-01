@@ -2,10 +2,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
     let datos_US_USSR = data.filter(d => d.nacionalidad == 'U.S.S.R/Rusia' || d.nacionalidad == 'EE.UU.')
     let datos_filtrados = datos_US_USSR.filter(d => d.anio_mision == '2016' || d.anio_mision == '2019')
     let chart = Plot.plot({
-      color: {
-        range: ['#f2ae72', '#b2014b', '#abdda4', '#a454b0'],
-        legend: true,
-      },
         marks: [
         Plot.barY(datos_US_USSR, Plot.groupX({y: 'sum'}, {
           x: 'ocupacion',
@@ -19,20 +15,20 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         })),
         Plot.axisY({
           ticks: 10,
-          labelOffset: 80,
+          labelOffset: 60,
           fontSize: 12,
         }),
         Plot.axisX({
           label: "Ocupación",
           fontSize: 0,
         }),
-        Plot.text(datos_US_USSR, {
+        Plot.textX(datos_US_USSR, {
           x: 'ocupacion',
           y: 'mision_hs',
           text: ['Ocupación'],
           fill: '#111111', 
           fontSize: 13,
-          dx: -100,
+          dx: -140,
           dy: 30,
         }),
         Plot.frame({
@@ -45,6 +41,11 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
         label: null,
         labelSize: 12,
       },
+      color: {
+        scheme: 'dark2',
+        // range: ['#F09A4E', '#E778A6', '#0658C1', '#a454b0'],
+        legend: true,
+      },
       // facet: {
       //   data: datos_filtrados,
       //   x: d => d.anio_mision + "",
@@ -53,7 +54,6 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       // },
       y: {
         label: 'Horas de misión',
-        labelOffset: 70,
         ticks: 8,
         labelSize: 12,
         grid: true,
@@ -66,11 +66,11 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       style: {
         fontSize: 12,
       },
-      height: 400,
-      width: 400,
+      height: 380,
+      width: 500,
       insetTop: 15,
       marginTop: 18,
-      marginLeft: 83,
+      marginLeft: 60,
       marginBottom: 32,
     })
     d3.select('#chart').append(() => chart)
