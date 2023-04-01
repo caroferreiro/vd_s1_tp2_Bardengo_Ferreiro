@@ -26,9 +26,10 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
             x: 'anio_mision', 
             y: 'mision_hs', 
             //fill: 'nacionalidad',
-            fill: d => (d.nacionalidad == 'EE.UU.' ? '#87cefa' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#9e0142' : '	#A9A9A9'), 
+            //'#9acd32'
+            fill: d => (d.nacionalidad == 'EE.UU.' ? '#4682b4' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#db7093' : '	#A9A9A9'), 
             fillOpacity: 0.5,
-            stroke: d => (d.nacionalidad == 'EE.UU.' ? '#87cefa' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#9e0142' : '	#A9A9A9'),
+            stroke: d => (d.nacionalidad == 'EE.UU.' ? '#4682b4': '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#db7093' : '	#A9A9A9'),
             strokeOpacity: 0.1,
             strokeWeight: 0.1,
             legend: true,
@@ -37,14 +38,16 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
           `${d.nacionalidad}`
           //Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
        // Horas de misión: ${Math.round(d.mision_hs/24)} días`,
+       //'#87cefa'
+       //#db7093'
           })),
           Plot.barY(datos_2016, 
             Plot.groupX({y: 'sum'}, {
               x: 'anio_mision', 
               y: 'mision_hs', 
-              fill:d => (d.nacionalidad == 'EE.UU.' ? '#87cefa' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#9e0142' : '	#A9A9A9'),
+              fill:d => (d.nacionalidad == 'EE.UU.' ? '#4682b4' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#db7093' : '	#A9A9A9'),
               fillOpacity: 0.8,
-              stroke: d => (d.nacionalidad == 'EE.UU.' ? '#87cefa' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#9e0142' : '	#A9A9A9'),
+              stroke: d => (d.nacionalidad == 'EE.UU.' ? '#4682b4': '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#db7093' : '	#A9A9A9'),
               strokeOpacity: 0.1,
               strokeWeight: 0.1,
               sort: 'nacionalidad',
@@ -55,9 +58,9 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
             Plot.groupX({y: 'sum'}, {
               x: 'anio_mision', 
               y: 'mision_hs', 
-              fill:d => (d.nacionalidad == 'EE.UU.' ? '#87cefa' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#9e0142' : '	#A9A9A9'),
+              fill:d => (d.nacionalidad == 'EE.UU.' ? '#4682b4' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#db7093': '	#A9A9A9'),
               fillOpacity: 0.7,
-              stroke:d => (d.nacionalidad == 'EE.UU.' ? '#87cefa' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#9e0142' : '	#A9A9A9'),
+              stroke:d => (d.nacionalidad == 'EE.UU.' ? '#4682b4' : '#A9A9A9' && d.nacionalidad == 'U.S.S.R/Rusia' ? '#db7093' : '	#A9A9A9'),
               strokeOpacity: 0.1,
               strokeWeight: 0.1,
               sort: 'nacionalidad',
