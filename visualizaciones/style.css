@@ -19,7 +19,7 @@ iframe {
   text-transform: uppercase; /* capitalización texto */
   font-family: 'Lato', sans-serif; /*tipografía texto*/
   border-radius: 50px; /*bordes redondos*/
-  margin-right: 12px; 
+  margin-right: 20px; 
 }
 p {
   font-family: 'Lato', sans-serif;
@@ -45,11 +45,14 @@ h1#title {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   font-size: 14px;
+  text-align: center;
   color: black;
   line-height: 50px;
   font-weight: 550;
   letter-spacing: 0.3px;
-  margin-right: 40px; 
+  margin-right: 0px; 
+  margin-top: 32px;
+  margin-left: 20px;
   /* width: 640px;
   height: 223px;
   border: 4px solid #3EAFDC; */
