@@ -34,8 +34,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
             strokeWeight: 0.1,
             legend: true,
             sort: 'nacionalidad',
-            title: (d) =>
-          `${d.nacionalidad}`
+            //title: (d) =>
+          //`${d.nacionalidad}`
           //Horas de misión: ${(d.mision_hs).toFixed(2)} horas`,
        // Horas de misión: ${Math.round(d.mision_hs/24)} días`,
        //'#87cefa'
@@ -51,8 +51,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
               strokeOpacity: 0.1,
               strokeWeight: 0.1,
               sort: 'nacionalidad',
-              title: (d) =>
-            `${d.nacionalidad}`
+              //title: (d) =>
+            //`${d.nacionalidad}`
           })),
           Plot.barY(datos_2019, 
             Plot.groupX({y: 'sum'}, {
@@ -64,8 +64,8 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
               strokeOpacity: 0.1,
               strokeWeight: 0.1,
               sort: 'nacionalidad',
-              title: (d) =>
-            `${d.nacionalidad}`
+              //title: (d) =>
+            //`${d.nacionalidad}`
           })),
         Plot.text(
           datos_2016,
