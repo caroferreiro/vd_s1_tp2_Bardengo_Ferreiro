@@ -27,7 +27,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       }),
       Plot.axisX({
         ticks: 5,
-        label: 'Horas de misión',
+        label: 'Horas de misión →',
         labelOffset: 40,
         fontSize: 12,
       }),

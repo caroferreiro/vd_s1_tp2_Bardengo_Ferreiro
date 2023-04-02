@@ -53,7 +53,7 @@ d3.csv('astronautas.csv', d3.autoType).then(data => {
       //   labelSize: 12,
       // },
       y: {
-        label: 'Horas de misión',
+        label: 'Horas de misión ↑',
         ticks: 8,
         labelSize: 12,
         grid: true,
